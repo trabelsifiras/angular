@@ -7,16 +7,16 @@ import {PROMOTIONS} from '../shared/promotions';
 export class PromotionService {
 
   constructor() { }
-  getPROMOTIONS(): Promotion[]{
-    return PROMOTIONS;
+  getPROMOTIONS(): Promise<Promotion[]>{
+    return Promise.resolve(PROMOTIONS);
  
    }
-   getDish(id:string):Promotion{
- return PROMOTIONS.filter((promo)=>(promo.id===id))[0];
+   getDish(id:string):Promise<Promotion>{
+ return Promise.resolve(PROMOTIONS.filter((promo)=>(promo.id===id))[0]);
  
    }
-   getFeaturedPromotion():Promotion{
+   getFeaturedPromotion():Promise<Promotion>{
  
- return PROMOTIONS.filter((promo)=>promo.featured)[0];
+ return Promise.resolve(PROMOTIONS.filter((promo)=>promo.featured)[0]);
    }
 }
