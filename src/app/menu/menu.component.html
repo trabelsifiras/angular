@@ -19,5 +19,11 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
+  <div fxFlex *ngIf="dishes">
+    . . .
+    </div>
+    <div [hidden]="dishes">
+      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
  
 </div>
