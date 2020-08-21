@@ -1,21 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {Leader} from '../shared/leader';
+import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
-import {LEADERS} from '../shared/leaders';
+import { flyInOut, expand } from '../animations/app.animation';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  host: {
+    '[@flyInout]': 'true',
+    'style': 'display: block;'
+  },
+  animations: [
+    flyInOut(),
+    expand()
+  ]
 })
 export class AboutComponent implements OnInit {
-  
-  leader:Leader;
-  leaders:Leader[]=LEADERS;
-  constructor(private leaderservice:LeaderService) { }
+
+  leaders: Leader[];
+
+  constructor(private leaderService: LeaderService) { }
 
   ngOnInit() {
-    this.leaderservice.getLeaders()
-    .subscribe((leaders)=>this.leaders=leaders);
+    this.leaderService.getLeaders()
+    .subscribe(leaders => this.leaders = leaders);
   }
 
 }

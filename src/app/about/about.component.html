@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  
+
   <div fxFlex>
     <mat-card>
       <blockquote>
@@ -56,20 +56,22 @@
 
   <div fxFlex>
     <h2>Corporate Leadership</h2>
-
-    <mat-list-item *ngFor="let leader of leaders">
-
-      <p matLine> <img height="60px" src={{leader.image}} alt={{leader.name}}> {{leader.name}}</p>
-      <p matLine>
-        <span>{{leader.description}} </span>
-      </p>
-    
-    </mat-list-item>
+    <mat-list *ngIf="leaders"  [@expand]>
+      <mat-list-item *ngFor="let leader of leaders">
+        <img mat-list-avatar src={{leader.image}} alt={{leader.name}}>
+        <p mat-line>
+          <span> {{leader.name}}</span>
+        </p>
+        <p mat-line>
+          <span> {{leader.designation}}</span>
+        </p>
+        <p mat-line>
+          <span> {{leader.description}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
   </div>
-  <div fxFlex *ngIf="leaders">
-    . . .
-    </div>
-    <div [hidden]="leaders">
-      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  <div fxFlex [hidden]="leader">
+      <mat-spinner></mat-spinner><h4>Loading . . . Please wait</h4>
     </div>
 </div>
