@@ -1,7 +1,6 @@
-export class comment{
-rating:number;
-author:string;
-date:string;
-comment:string;
-
-}
+export class Comment {
+    rating: number;
+    comment: string;
+    author: string;
+    date: string;
+  }

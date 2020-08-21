@@ -26,12 +26,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms'; 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
-
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatSliderModule } from '@angular/material/slider';
+import {HttpClientModule} from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { from } from 'rxjs';
+
+import { baseURL } from './shared/baseurl';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +57,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+    HttpClientModule,
     MatDialogModule,
     MatFormFieldModule, 
     FormsModule,
@@ -62,12 +67,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSlideToggleModule,
     MatListModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule
   ],
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    {provide:'BaseUrl',useValue: baseURL}
 
   
   ],
@@ -77,3 +84,4 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class SlidePageModule { }
