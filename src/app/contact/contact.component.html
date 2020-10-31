@@ -38,11 +38,7 @@ fxLayoutGap="10px">
 </div>
 <div fxFlex fxFlexOffset="20px" class="form-size">
   <h3>Send us your Feedback</h3>
-  <div [hidden]="hide" [@expand]>
-    <br>
-    <h4>Submitting Form...</h4>
-    <mat-spinner></mat-spinner>
-  </div>
+  
 
   <div *ngIf="feedback" [@expand]>
     <h4>Your Submission</h4>
